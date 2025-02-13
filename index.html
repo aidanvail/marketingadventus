@@ -314,26 +314,32 @@
 
     <script src="script.js"></script>
     <script>
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navMenu = document.querySelector('.main-nav ul');
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.main-nav ul');
 
-        // Toggle menu when clicking the hamburger button
-        mobileMenuBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            navMenu.classList.toggle('show');
-        });
+            // Toggle menu when clicking the hamburger button
+            mobileMenuBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                navMenu.classList.toggle('show');
+                this.classList.toggle('active');
+            });
 
-        // Close menu when clicking anywhere else on the page
-        document.addEventListener('click', function(e) {
-            if (!navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                navMenu.classList.remove('show');
-            }
-        });
+            // Close menu when clicking anywhere else on the page
+            document.addEventListener('click', function(e) {
+                if (!navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    navMenu.classList.remove('show');
+                    mobileMenuBtn.classList.remove('active');
+                }
+            });
 
-        // Close menu when clicking a nav link
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('show');
+            // Close menu when clicking a nav link
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('show');
+                    mobileMenuBtn.classList.remove('active');
+                });
             });
         });
     </script>
