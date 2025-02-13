@@ -12,6 +12,11 @@
 <body>
     <nav class="main-nav">
         <div class="container">
+            <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <a href="#" class="logo">
                 <img src="https://i.imgur.com/8E8FiF8.png" alt="AdVentus Logo" class="logo-img">
             </a>
@@ -84,7 +89,7 @@
                         </div>
                     </div>
                     <div class="about-image">
-                        <img src="https://imgur.com/nnhJdMB.jpg" alt="About Us Image" class="team-image">
+                        <img src="images/about.png" alt="About Us Image" class="team-image">
                         <div class="about-card">
                             <h4>Part of AdVentus Group</h4>
                             <p>We're part of the AdVentus Group, a collection of companies dedicated to creating comprehensive, scalable, and impactful solutions.</p>
@@ -106,7 +111,7 @@
                     <div class="service-grid">
                         <div class="service-card">
                             <div class="service-header">
-                                <img src="https://imgur.com/nv0w2du.jpg" alt="Social Media Management" class="service-icon">
+                                <img src="images/4.png" alt="Social Media Management" class="service-icon">
                                 <h4>Social Media Management</h4>
                                 <p>Transform your social media into vibrant communities.</p>
                                 <button class="dropdown-btn">View Duties</button>
@@ -124,7 +129,7 @@
 
                         <div class="service-card">
                             <div class="service-header">
-                                <img src="https://imgur.com/gvd7GfO.jpg" alt="SEO & Digital Marketing" class="service-icon">
+                                <img src="images/5.png" alt="SEO & Digital Marketing" class="service-icon">
                                 <h4>SEO & Digital Marketing</h4>
                                 <p>Boost your brand's visibility.</p>
                                 <button class="dropdown-btn">View Duties</button>
@@ -142,7 +147,7 @@
 
                         <div class="service-card">
                             <div class="service-header">
-                                <img src="https://imgur.com/YgTC8Mk.jpg" alt="Content Creation & Copywriting" class="service-icon">
+                                <img src="images/6.png" alt="Content Creation & Copywriting" class="service-icon">
                                 <h4>Content Creation & Copywriting</h4>
                                 <p>Craft compelling stories that resonate.</p>
                                 <button class="dropdown-btn">View Duties</button>
@@ -160,7 +165,7 @@
 
                         <div class="service-card">
                             <div class="service-header">
-                                <img src="https://imgur.com/SzlFBQL.jpg" alt="Marketing Strategy Development" class="service-icon">
+                                <img src="images/3.png" alt="Marketing Strategy Development" class="service-icon">
                                 <h4>Marketing Strategy Development</h4>
                                 <p>Create customized marketing blueprints.</p>
                                 <button class="dropdown-btn">View Duties</button>
@@ -308,5 +313,29 @@
     </main>
 
     <script src="script.js"></script>
+    <script>
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.main-nav ul');
+
+        // Toggle menu when clicking the hamburger button
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navMenu.classList.toggle('show');
+        });
+
+        // Close menu when clicking anywhere else on the page
+        document.addEventListener('click', function(e) {
+            if (!navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navMenu.classList.remove('show');
+            }
+        });
+
+        // Close menu when clicking a nav link
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+            });
+        });
+    </script>
 </body>
 </html>

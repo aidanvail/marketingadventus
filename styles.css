@@ -31,8 +31,70 @@ body {
     position: fixed;
     width: 100%;
     z-index: 1000;
-    padding: 10px 0;
+    padding: 15px 0;
     top: 0;
+    height: 60px;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 5px;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 768px) {
+    .main-nav .container {
+        padding: 0 15px;
+    }
+
+    .logo-img {
+        height: 30px;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .main-nav ul {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        flex-direction: column;
+        padding: 20px 0;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        transform: translateY(-150%);
+        transition: transform 0.3s ease-in-out;
+        display: flex;
+        z-index: 999;
+    }
+
+    .main-nav ul.show {
+        transform: translateY(0);
+        top: 60px;
+    }
+
+    .main-nav ul li {
+        margin: 15px 0;
+    }
+
+    .hero {
+        padding-top: 80px;
+    }
 }
 
 .main-nav .container {
@@ -66,7 +128,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background-image: url('https://i.imgur.com/LprIsXX.jpg');
+    background-image: url('images/hero.png');
     background-size: cover;
     background-position: center;
     min-height: 100vh;
