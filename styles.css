@@ -130,7 +130,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background-image: url('/images/hero.png');
+    background-image: url('images/hero.png');
     background-size: cover;
     background-position: center;
     min-height: 100vh;
