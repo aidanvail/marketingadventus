@@ -65,10 +65,15 @@ body {
 
     .mobile-menu-btn {
         display: block;
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .main-nav ul {
-        position: fixed;
+        display: none;
+        position: absolute;
         top: 60px;
         left: 0;
         width: 100%;
@@ -77,15 +82,10 @@ body {
         padding: 20px 0;
         text-align: center;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        transform: translateY(-150%);
-        transition: transform 0.3s ease-in-out;
-        display: flex;
-        z-index: 999;
     }
 
     .main-nav ul.show {
-        transform: translateY(0);
-        top: 60px;
+        display: flex;
     }
 
     .main-nav ul li {
@@ -128,7 +128,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background-image: url('images/hero.png');
+    background-image: url('./images/hero.png');
     background-size: cover;
     background-position: center;
     min-height: 100vh;
@@ -137,6 +137,7 @@ body {
     color: var(--secondary-color);
     position: relative;
     padding: 120px 0;
+    margin-top: -60px;
 }
 
 .hero::before {
