@@ -137,6 +137,7 @@ body {
     color: var(--secondary-color);
     position: relative;
     padding: 120px 0;
+    margin-top: 60px;
 }
 
 .hero::before {
